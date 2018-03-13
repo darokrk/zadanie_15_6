@@ -50,6 +50,21 @@ class Stopwatch {
         this.reset();
         this.print();
     }
+    result() {
+        const resultsList = document.getElementById('ul');
+        const resultsItem = document.createElement('li');
+        
+        let clearListButton = document.createElement('button');
+        clearListButton.innerHTML = "Clear result";
+        clearListButton.setAttribute('class', 'buttonClearList');
+        clearListButton.addEventListener('click', () => resultsList.removeChild(resultsList.lastChild));
+
+        let result = this.format(this.times);
+        resultsItem.innerHTML = result;
+        resultsItem.setAttribute('id', 'item');
+        resultsItem.appendChild(clearListButton);
+        resultsList.appendChild(resultsItem);
+    }
 }
 
 function pad0(value) {
@@ -70,3 +85,6 @@ stopButton.addEventListener('click', () => stopwatch.stop());
 
 const clearButton = document.getElementById('clear');
 clearButton.addEventListener('click', () => stopwatch.resetWatch());
+
+let resultButton = document.getElementById('result');
+resultButton.addEventListener('click', () => stopwatch.result());
