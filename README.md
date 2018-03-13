@@ -1,2 +1,2 @@
 # zadanie_15_6
-resultsItem.innerHTML = result;
+https://darokrk.github.io/zadanie_15_6/
