@@ -7,4 +7,6 @@ body { background: #555555; color: #fff; }
 
 .container .stopwatch { font-family: 'Roboto', sans-serif; font-size: 72px; }
 
-.container .results { font-size: 22px; }
+.container .results { font-size: 22px; padding: 0; }
+
+.container .results li { display: block; }
