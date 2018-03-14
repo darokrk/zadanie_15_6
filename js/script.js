@@ -52,18 +52,18 @@ class Stopwatch {
     }
     result() {
         const resultsList = document.getElementById('ul');
-        const resultsItem = document.createElement('li');
-        
-        let clearListButton = document.createElement('button');
-        clearListButton.innerHTML = "Clear result";
-        clearListButton.setAttribute('class', 'buttonClearList');
-        clearListButton.addEventListener('click', () => resultsList.removeChild(resultsList.lastChild));
-
+        const resultsItem = document.createElement('li');       
         let result = this.format(this.times);
+        
         resultsItem.innerHTML = result;
         resultsItem.setAttribute('id', 'item');
-        resultsItem.appendChild(clearListButton);
         resultsList.appendChild(resultsItem);
+    }
+    clear() {
+        const resultsList = document.getElementById('ul');
+        if(resultsList.lastChild) {
+            resultsList.removeChild(resultsList.lastChild);
+        }
     }
 }
 
@@ -88,3 +88,6 @@ clearButton.addEventListener('click', () => stopwatch.resetWatch());
 
 let resultButton = document.getElementById('result');
 resultButton.addEventListener('click', () => stopwatch.result());
+
+let clearListButton = document.getElementById('clearList');
+clearListButton.addEventListener('click', () => stopwatch.clear());
